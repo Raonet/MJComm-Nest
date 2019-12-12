@@ -14,4 +14,9 @@ export class UserService {
   async delUser(userid) {
     return this.userModel.remove({id: userid});
   }
+  // 修改用户
+  async modiUser(createUserDto: CreateUserDto): Promise<User> {
+    const id = createUserDto.id;
+    return await this.userModel.update(id, {pwd: createUserDto.pwd});
+  }
 }

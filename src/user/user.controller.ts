@@ -13,4 +13,8 @@ export class UserController {
   async delUser(@Param()Params: CreateUserDto) {
     return this.userService.delUser(Params.id);
   }
+  @Post('modi')
+  async modiUser(@Body() createUserDto: CreateUserDto): Promise<CreateUserDto> {
+    return this.userService.modiUser(createUserDto);
+  }
 }
