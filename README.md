@@ -30,18 +30,19 @@
 
 ## Installation
 
+# 安装依赖包
 ```bash
 $ npm install
 ```
 
-## Running the app
+## 运行项目
 
 ```bash
-# development
+# 开发模式运行
 $ npm run start
 
-# watch mode
-$ npm run start:dev
+# 运行项目并启动wath模式
+$ npm run dev
 
 # production mode
 $ npm run start:prod
