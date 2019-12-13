@@ -12,11 +12,14 @@ export class UserService {
   }
   // 删除用户
   async delUser(userid) {
-    return this.userModel.remove({id: userid});
+    return this.userModel.remove({_id: userid});
   }
   // 修改用户
-  async modiUser(createUserDto: CreateUserDto): Promise<User> {
-    const id = createUserDto.id;
-    return await this.userModel.update(id, {pwd: createUserDto.pwd});
+  async modiUser(createUserDto: CreateUserDto, objId): Promise<User> {
+    return await this.userModel.update({_id: objId}, createUserDto);
+  }
+  // 登陆
+  async loginUser(obj) {
+    return await this.userModel.find( obj );
   }
 }
