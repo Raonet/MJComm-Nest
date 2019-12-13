@@ -6,9 +6,14 @@ import { CreateUserDto } from './dto/create-user.dto';
 export class UserService {
   constructor(@Inject('USER_MODEL') private readonly userModel: Model<User>) {}
   // 创建用户
-  async createUser(createUserDto: CreateUserDto): Promise<User> {
+  async createUser(createUserDto: CreateUserDto) {
     const createUser = new this.userModel(createUserDto);
-    return await createUser.save();
+    const name = createUserDto.user;
+    if (await this.userModel.findOne({user: name})) {
+      return 0;
+    } else {
+      return await createUser.save();
+    }
   }
   // 删除用户
   async delUser(userid) {
@@ -21,5 +26,31 @@ export class UserService {
   // 登陆
   async loginUser(obj) {
     return await this.userModel.find( obj );
+  }
+  // 查询全部用户
+  async findAll() {
+    return await this.userModel.find();
+  }
+  // 包装返回值
+  async goodRes(results, text, codes) {
+    if (results === 0) {
+      return {
+        code: 200,
+        status: 0,
+      };
+    }
+    if (results.length === 0) {
+      return {
+        code: 200,
+        status: 0,
+      };
+    }
+    const data = {
+      code: codes,
+      status: text,
+      result: results,
+      length: results.length,
+    };
+    return data;
   }
 }
