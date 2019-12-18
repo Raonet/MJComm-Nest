@@ -7,4 +7,5 @@ export class CreateUserDto {
   readonly avater: string;
   readonly description: string;
   readonly email: string;
+  readonly createTime: string;
 }

@@ -7,4 +7,5 @@ export const UserSchema = new mongoose.Schema({
   avater: String,
   description: String,
   email: String,
+  createTime: String,
 });
