@@ -4,6 +4,7 @@ import { AdminModule } from './admin/admin.module';
 import { UserModule } from './user/user.module';
 import { HomepageModule } from './homepage/homepage.module';
 import { NewsModule } from './news/news.module';
+import { ForumModule } from './forum/forum.module';
 
 @Module({
   imports: [
@@ -11,8 +12,8 @@ import { NewsModule } from './news/news.module';
     UserModule,
     HomepageModule,
     NewsModule,
+    ForumModule,
     ],
   controllers: [AppController],
-  providers: [],
 })
 export class AppModule {}

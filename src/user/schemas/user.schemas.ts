@@ -8,4 +8,16 @@ export const UserSchema = new mongoose.Schema({
   description: String,
   email: String,
   createTime: String,
+  createf: [
+    { _id: String },
+  ],
+  jionf: [
+    { _id: String },
+  ],
+  praise: [
+    { _id: String },
+  ],
+   step: [
+    { _id: String },
+  ],
 });
