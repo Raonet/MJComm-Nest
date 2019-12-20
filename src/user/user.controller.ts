@@ -15,9 +15,9 @@ export class UserController {
   async delUser(@Param()Params: CreateUserDto) {
     return this.userService.goodRes(await this.userService.delUser(Params._id), '删除成功', '200');
   }
-  @Post('update/:_id')
-  async modiUser(@Body() createUserDto: CreateUserDto, @Param()Params: CreateUserDto) {
-    return this.userService.goodRes(await this.userService.modiUser(createUserDto, Params._id), '更新成功', '200');
+  @Post('update')
+  async modiUser(@Body() createUserDto: CreateUserDto) {
+    return this.userService.goodRes(await this.userService.modiUser(createUserDto, createUserDto._id), '更新成功', '200');
   }
   @Post('login')
   async loginUser(@Body() createUserDto: CreateUserDto) {
