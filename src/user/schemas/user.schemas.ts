@@ -9,15 +9,15 @@ export const UserSchema = new mongoose.Schema({
   email: String,
   createTime: String,
   createf: [
-    { _id: String },
+    { forumid: String },
   ],
   jionf: [
-    { _id: String },
+    { forumid: String },
   ],
   praise: [
-    { _id: String },
+    { forumid: String },
   ],
-   step: [
-    { _id: String },
+  step: [
+    { forumid: String },
   ],
 });

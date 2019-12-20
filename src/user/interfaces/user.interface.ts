@@ -9,15 +9,15 @@ export interface User extends Document {
   readonly email: string;
   readonly createTime: string;
   readonly createf: [
-    {readonly _id: string; }
+    {readonly forumid: string; }
   ];
   readonly jionf: [
-    {readonly _id: string; }
+    {readonly forumid: string; }
   ];
   readonly praise: [
-    {readonly _id: string}
+    {readonly forumid: string}
   ];
   readonly step: [
-    {readonly _id: string; }
+    {readonly forumid: string; }
   ];
 }

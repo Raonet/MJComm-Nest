@@ -3,23 +3,24 @@ import * as mongoose from 'mongoose';
 export const ForumSchema = new mongoose.Schema ({
  title: String,
  content: String,
+ description: String,
  createtime: String,
  moditime: String,
  heat: Number,
  author: {
-   _id: String,
+   userid: String,
    name: String,
    avatar: String,
   },
  praise: [
     {
-     _id: String,
+     userid: String,
      name: String,
     },
   ],
  step: [
     {
-     _id: String,
+     userid: String,
      name: String,
     },
   ],
