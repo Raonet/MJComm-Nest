@@ -20,6 +20,6 @@ export class AppController {
     }),
   }))
   async upLoad(@UploadedFile() file) {
-    return {url: 'http://localhost:3000/static/upload' + file.originalname};
+    return {url: 'http://localhost:3000/static/upload/' + file.originalname};
   }
 }
