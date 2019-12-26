@@ -7,9 +7,12 @@ import { NewsModule } from './news/news.module';
 import { ForumModule } from './forum/forum.module';
 import { EventsGateway } from './chatevent/chatevent.gateway';
 import { ChateventService } from './chatevent/chatevent.service';
+import { chatroomProviders } from './chatevent/chatroom.providers';
+import { DatabaseModule } from './db/database.module';
 
 @Module({
   imports: [
+    DatabaseModule,
     AdminModule,
     UserModule,
     HomepageModule,
@@ -17,6 +20,6 @@ import { ChateventService } from './chatevent/chatevent.service';
     ForumModule,
     ],
   controllers: [AppController],
-  providers: [EventsGateway, ChateventService],
+  providers: [EventsGateway, ChateventService, ...chatroomProviders],
 })
 export class AppModule {}
