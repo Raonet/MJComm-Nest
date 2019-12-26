@@ -11,7 +11,7 @@ export class ChateventService {
   // tslint:disable-next-line: no-shadowed-variable
   async addChatRoom(ChatRoom: ChatRoomDto) {
     const chatRoom = new this.chatroomModel(ChatRoom);
-    if (await this.chatroomModel.findOne({data: [{name: ChatRoom.name}]})) {
+    if (await this.chatroomModel.findOne({name: chatRoom.name})) {
       return 0;
     } else {
       return await chatRoom.save();

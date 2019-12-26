@@ -11,7 +11,7 @@ export class ChatRoomController {
   }
   @Post('addchatroom')
   async addChatRoom(@Body() chatroomDto: ChatRoomDto) {
-    return this.addChatRoom(chatroomDto);
+    return this.chatService.addChatRoom(chatroomDto);
   }
   @Post('delchatroom')
   async delChatRoom(@Body() body) {
