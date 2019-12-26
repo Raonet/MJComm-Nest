@@ -9,6 +9,8 @@ export class EventsGateway {
     const event = 'events';
     // client.emit('events', data);
     // client.broadcast.emit('events', data);
-    return { event, data};
+    // tslint:disable-next-line: no-console
+    console.log(data);
+    return { event, data };
   }
 }
