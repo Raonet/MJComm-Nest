@@ -5,6 +5,7 @@ export const ChatRoomSchema = new mongoose.Schema({
   description: String,
   data: [
     { userid: String,
+      username: String,
       avatar: String,
       msg: String,
       time: String,
