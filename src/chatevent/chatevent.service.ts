@@ -23,4 +23,11 @@ export class ChateventService {
   async updateChatRoom(chatroomDto, id) {
     return await this.chatroomModel.update({_id: id}, chatroomDto);
   }
+  async getChatInfo(data) {
+    return await this.chatroomModel.findOne({name: data.name});
+  }
+  async postchat(datas) {
+    await this.chatroomModel.update({name: datas.name}, {$push: {data: datas.data}});
+    return this.getChatInfo(datas);
+  }
 }

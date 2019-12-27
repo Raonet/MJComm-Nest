@@ -17,6 +17,10 @@ export class ChatRoomController {
   async delChatRoom(@Body() body) {
     return this.chatService.delChatRoom(body.id);
   }
+  @Post('chatlist')
+  async getChatlist(@Body() body) {
+    return this.chatService.getChatInfo(body);
+  }
   @Post('updatechat/:id')
   async updateChatRoom(@Body() chatRoomDto: ChatRoomDto, @Param() params) {
     return this.chatService.updateChatRoom(chatRoomDto, params.id);
