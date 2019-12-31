@@ -10,16 +10,4 @@ export class ForumDto {
     readonly name: string,
     readonly avatar: string,
   };
-  readonly praise: [
-    {
-    readonly userid: string,
-    readonly name: string,
-    }
-  ];
-  readonly step: [
-    {
-    readonly userid: string,
-    readonly name: string,
-    }
-  ];
 }
