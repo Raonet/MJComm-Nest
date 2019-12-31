@@ -3,7 +3,7 @@ import { Model } from 'mongoose';
 import { Forum } from './interfaces/forum.interface';
 import { ForumStep } from './interfaces/forum-step.interface';
 import { ForumPraise } from './interfaces/forum-praise.interface';
-import { ForumComment } from './interfaces/forum-comment.dto';
+import { ForumComment } from './interfaces/forum-comment.interface';
 import { ForumDto } from './dto/forum.dto';
 
 @Injectable()
