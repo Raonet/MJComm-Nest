@@ -6,9 +6,5 @@ export const ForumSchemas = new mongoose.Schema ({
  description: String,
  createtime: String,
  moditime: String,
- author: {
-   userid: String,
-   name: String,
-   avatar: String,
-  },
+ author: String,
 });

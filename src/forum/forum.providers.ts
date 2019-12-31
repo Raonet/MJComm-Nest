@@ -3,6 +3,7 @@ import { ForumSchemas } from './schemas/forum.schemas';
 import { ForumStepSchemas } from './schemas/forum-step.schemas';
 import { ForumPraiseSchemas } from './schemas/forum-praise.schemas';
 import { ForumCommentSchemas } from './schemas/forum-comment.schemas';
+import { UserSchema } from 'src/user/schemas/user.schemas';
 
 export const forumProviders = [
   {
@@ -23,6 +24,11 @@ export const forumProviders = [
   {
     provide: 'FORUMCOMMENT_MODEL',
     useFactory: (connection: Connection) => connection.model('forumcomment', ForumCommentSchemas),
+    inject: ['DATABASE_CONNECTION'],
+  },
+  {
+    provide: 'USER_MODEL',
+    useFactory: (connection: Connection) => connection.model('User', UserSchema),
     inject: ['DATABASE_CONNECTION'],
   },
 ];

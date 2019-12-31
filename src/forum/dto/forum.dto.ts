@@ -5,9 +5,5 @@ export class ForumDto {
   readonly createtime: string;
   readonly moditime: string;
   readonly heat: number;
-  readonly author: {
-    readonly userid: string,
-    readonly name: string,
-    readonly avatar: string,
-  };
+  readonly author: string;
 }

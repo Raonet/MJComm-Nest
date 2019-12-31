@@ -5,6 +5,7 @@ import { ForumStep } from './interfaces/forum-step.interface';
 import { ForumPraise } from './interfaces/forum-praise.interface';
 import { ForumComment } from './interfaces/forum-comment.interface';
 import { ForumDto } from './dto/forum.dto';
+import { User } from 'src/user/interfaces/user.interface';
 
 @Injectable()
 export class ForumService {
@@ -13,6 +14,7 @@ export class ForumService {
     @Inject('FORUMSTEP_MODEL') private readonly forumStepModel: Model<ForumStep>,
     @Inject('FORUMPRAISE_MODEL') private readonly forumPraiseModel: Model<ForumPraise>,
     @Inject('FORUMCOMMENT_MODEL') private readonly forumCommentModel: Model<ForumComment>,
+    @Inject('USER_MODEL') private readonly userModel: Model<User>,
   ) {}
   async getAllForum() {
     return await this.forumModel.find();
@@ -34,11 +36,14 @@ export class ForumService {
   }
   async getForum(forumid) {
     const forumdata = await this.forumModel.findOne({_id: forumid});
+    const userid = forumdata.author;
+    const authers = this.userModel.find({_id: userid});
     const praisedata = await this.forumPraiseModel.findOne({forumId: forumid});
     const stepdata = await this.forumStepModel.findOne({forumId: forumid});
     const commentdata = await this.forumCommentModel.findOne({forumId: forumid});
     const data = {
       forum: forumdata,
+      auther: authers,
       praise: praisedata,
       step: stepdata,
       comment: commentdata,
