@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-export const ForumSchema = new mongoose.Schema ({
+export const ForumSchemas = new mongoose.Schema ({
  title: String,
  content: String,
  description: String,

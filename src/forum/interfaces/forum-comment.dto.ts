@@ -1,6 +1,6 @@
 import { Document } from 'mongoose';
 
-export interface ForumList extends Document {
+export interface ForumComment extends Document {
   readonly forumId: string;
   readonly comments: [
     {
