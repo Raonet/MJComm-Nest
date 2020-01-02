@@ -19,7 +19,6 @@ export class ForumController {
   }
   @Get('getforum/:_id')
   async getForum(@Param() params) {
-    console.log(params);
     return this.forumService.getForum(params._id);
   }
   @Post('praise')
