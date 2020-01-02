@@ -36,8 +36,8 @@ export class ForumService {
   }
   async getForum(forumid) {
     const forumdata = await this.forumModel.findOne({_id: forumid});
-    const userid = forumdata.author;
-    const authers = this.userModel.find({_id: userid});
+    const userid = forumdata.author.userid;
+    const authers = await this.userModel.find({_id: userid});
     const praisedata = await this.forumPraiseModel.findOne({forumId: forumid});
     const stepdata = await this.forumStepModel.findOne({forumId: forumid});
     const commentdata = await this.forumCommentModel.findOne({forumId: forumid});

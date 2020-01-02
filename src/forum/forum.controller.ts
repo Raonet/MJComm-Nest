@@ -17,9 +17,10 @@ export class ForumController {
   async delForum(@Param() params) {
     return this.forumService.delForum(params._id);
   }
-  @Get('get/:id')
+  @Get('getforum/:_id')
   async getForum(@Param() params) {
-    return this.forumService.getForum(params.id);
+    console.log(params);
+    return this.forumService.getForum(params._id);
   }
   @Post('praise')
   async givePraise(@Body() praise) {
