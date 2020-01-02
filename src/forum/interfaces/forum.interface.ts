@@ -6,5 +6,9 @@ export interface Forum extends Document {
   readonly description: string;
   readonly createtime: string;
   readonly moditime: string;
-  readonly author: string;
+  readonly author: {
+    readonly userid: string,
+    readonly name: string,
+    readonly avatar: string,
+  };
 }
