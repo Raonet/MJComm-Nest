@@ -1,5 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Model } from 'mongoose';
+
 import { Forum } from './interfaces/forum.interface';
 import { ForumStep } from './interfaces/forum-step.interface';
 import { ForumPraise } from './interfaces/forum-praise.interface';
@@ -37,7 +38,7 @@ export class ForumService {
   async getForum(forumid) {
     const forumdata = await this.forumModel.findOne({_id: forumid});
     const userid = forumdata.author.userid;
-    const authers = await this.userModel.find({_id: userid});
+    const authers = await this.userModel.findOne({_id: userid});
     const praisedata = await this.forumPraiseModel.findOne({forumId: forumid});
     const stepdata = await this.forumStepModel.findOne({forumId: forumid});
     const commentdata = await this.forumCommentModel.findOne({forumId: forumid});
@@ -58,7 +59,7 @@ export class ForumService {
         return 0;
       }
     }
-    return await this.forumPraiseModel.update({forumId: praise.forumId}, {$push: {steps: praise.praises}});
+    return await this.forumPraiseModel.update({forumId: praise.forumId}, {$push: {praises: praise.praises}});
   }
   async giveStep(step) {
     const stepdata: any = await this.forumStepModel.findOne({forumId: step.forumId});
