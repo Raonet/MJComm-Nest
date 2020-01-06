@@ -1,4 +1,4 @@
-import { Injectable, Inject } from '@nestjs/common';
+import { Injectable, Inject, HttpException, HttpStatus } from '@nestjs/common';
 import { Model } from 'mongoose';
 
 import { Forum } from './interfaces/forum.interface';
@@ -56,7 +56,7 @@ export class ForumService {
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < praisedata.praises.length; i++) {
       if (praisedata.praises[i].userid === praise.praises.userid) {
-        return 0;
+        throw new HttpException('用户已点过赞了', HttpStatus.BAD_REQUEST);
       }
     }
     return await this.forumPraiseModel.update({forumId: praise.forumId}, {$push: {praises: praise.praises}});
@@ -66,7 +66,7 @@ export class ForumService {
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < stepdata.steps.length; i++) {
       if (stepdata.steps[i].userid === step.steps.userid) {
-        return 0;
+        throw new HttpException('用户已踩过了', HttpStatus.BAD_REQUEST);
       }
     }
     return await this.forumStepModel.update({forumId: step.forumId}, {$push: {steps: step.steps}});
