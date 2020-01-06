@@ -33,4 +33,8 @@ export class ForumController {
   async giveStep(@Body() step) {
     return this.forumService.giveStep(step);
   }
+  @Post('comments')
+  async giveComment(@Body() comment) {
+    return this.forumService.giveComment(comment);
+  }
 }

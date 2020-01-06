@@ -71,4 +71,7 @@ export class ForumService {
     }
     return await this.forumStepModel.update({forumId: step.forumId}, {$push: {steps: step.steps}});
   }
+  async giveComment(comments) {
+    return await this.forumPraiseModel.update({forumId: comments.forumId}, {$push: {comment: comments.comment}});
+  }
 }
