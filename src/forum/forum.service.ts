@@ -72,6 +72,14 @@ export class ForumService {
     return await this.forumStepModel.update({forumId: step.forumId}, {$push: {steps: step.steps}});
   }
   async giveComment(comments) {
-    return await this.forumPraiseModel.update({forumId: comments.forumId}, {$push: {comment: comments.comment}});
+    // const comment: any = await this.forumCommentModel.find({forumId: comments.forumId});
+    // for (const each of comment.comments) {
+    //   if (each.userId === comments.comment.userId) {
+    //     if (each.content === comments.comment.content ) {
+    //       return {ok: 0};
+    //     }
+    //   }
+    // }
+    return await this.forumCommentModel.update({forumId: comments.forumId}, {$push: {comments: comments.comment}});
   }
 }
