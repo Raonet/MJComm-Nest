@@ -7,12 +7,14 @@ export const ForumCommentSchemas = new mongoose.Schema({
       userId: String,
       userName: String,
       content: String,
+      avatar: String,
       date: String,
       replys: [
         {
           userId: String,
           userName: String,
           content: String,
+          avatar: String,
           date: String,
         },
       ],

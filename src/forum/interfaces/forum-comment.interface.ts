@@ -7,12 +7,14 @@ export interface ForumComment extends Document {
       userId: string,
       userName: string,
       content: string,
+      avatar: string,
       date: string,
       replys: [
         {
           userId: string,
           userName: string,
           content: string,
+          avatar: string,
           date: string,
         }
       ],

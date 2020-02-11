@@ -6,11 +6,13 @@ export class ForumCommentDto {
       userName: string,
       content: string,
       date: string,
+      avatar: string,
       replys: [
         {
           userId: string,
           userName: string,
           content: string,
+          avatar: string,
           date: string,
         }
       ],
