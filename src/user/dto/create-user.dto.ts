@@ -9,7 +9,6 @@ export class CreateUserDto {
   readonly email: string;
   readonly createTime: string;
   readonly createf: [
-    {readonly forumid: string; }
   ];
   readonly jionf: [
     {readonly forumid: string; }

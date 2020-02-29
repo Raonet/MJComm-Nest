@@ -1,11 +1,18 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Model } from 'mongoose';
+
 import { User } from './interfaces/user.interface';
 import { CreateUserDto } from './dto/create-user.dto';
+import { Forum } from 'src/forum/interfaces/forum.interface';
+import { ForumComment } from 'src/forum/interfaces/forum-comment.interface';
 
 @Injectable()
 export class UserService {
-  constructor(@Inject('USER_MODEL') private readonly userModel: Model<User>) {}
+  constructor(
+    @Inject('USER_MODEL') private readonly userModel: Model<User>,
+    @Inject('FORUM_MODEL') private readonly forumModel: Model<Forum>,
+    @Inject('FORUMCOMMENT_MODEL') private readonly forumCommentModel: Model<ForumComment>,
+  ) {}
   // 创建用户
   async createUser(createUserDto: CreateUserDto) {
     const createUser = new this.userModel(createUserDto);
@@ -61,5 +68,14 @@ export class UserService {
   async postAvatar(avatar, userId) {
     const avatars = 'http://localhost:3000/static/static/' + avatar;
     return await this.userModel.update({_id: userId}, {avater: avatars});
+  }
+  // 获取用户创建的论坛帖子与参与的论坛帖子
+  async getCJForum(params) {
+    return this.forumModel.find({author: { userid: params.id}});
+    // const joinForum = this.forumCommentModel.find({comments: {userId: params.id}});
+    // return {
+    //   create: creatrForum,
+    //   join: joinForum,
+    // };
   }
 }

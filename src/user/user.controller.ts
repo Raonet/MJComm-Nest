@@ -42,4 +42,8 @@ export class UserController {
   async uploadAvatar(@UploadedFile() avater, @Param() userId) {
     return this.userService.postAvatar(avater.originalname, userId);
   }
+  @Get('cjforum/:id')
+  async getCJForum(@Param() params) {
+    return await this.userService.getCJForum(params);
+  }
 }

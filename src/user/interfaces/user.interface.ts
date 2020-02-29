@@ -9,7 +9,7 @@ export interface User extends Document {
   readonly email: string;
   readonly createTime: string;
   readonly createf: [
-    {readonly forumid: string; }
+    { forumid: string; }
   ];
   readonly jionf: [
     {readonly forumid: string; }
