@@ -12,7 +12,7 @@ export class AppController {
   @UseInterceptors(FileInterceptor('file', {
     storage: diskStorage({
       destination: (req, file, cb) => {
-        cb(null, '/bishe/mjcomm/public/upload');
+        cb(null, '\public/upload');
       },
       filename: (req, file, cb) => {
         cb(null, file.originalname);

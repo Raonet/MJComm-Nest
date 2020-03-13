@@ -31,7 +31,7 @@ export class UserController {
   @UseInterceptors(FileInterceptor('avater', {
     storage: diskStorage({
       destination: (req, file, cb) => {
-        cb(null, '/bishe/mjcomm/public/static');
+        cb(null, '\public/static');
       },
       filename: (req, file, cb) => {
         cb(null, file.originalname);

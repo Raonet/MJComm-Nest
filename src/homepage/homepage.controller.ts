@@ -14,7 +14,7 @@ export class HomepageController {
   @UseInterceptors(FileInterceptor('homeimg', {
     storage: diskStorage({
       destination: (req, file, cb) => {
-        cb(null, '/bishe/mjcomm/public/homepage');
+        cb(null, '\public/homepage');
       },
       filename: (req, file, cb) => {
         cb(null, file.originalname);
