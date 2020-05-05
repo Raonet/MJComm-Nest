@@ -10,6 +10,7 @@ import { ChateventService } from './chatevent/chatevent.service';
 import { chatroomProviders } from './chatevent/chatroom.providers';
 import { DatabaseModule } from './db/database.module';
 import { ChatRoomController } from './chatevent/chatroom.controller';
+import { RepairModule } from './repair/repair.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ChatRoomController } from './chatevent/chatroom.controller';
     HomepageModule,
     NewsModule,
     ForumModule,
+    RepairModule,
     ],
   controllers: [AppController, ChatRoomController],
   providers: [EventsGateway, ChateventService, ...chatroomProviders],

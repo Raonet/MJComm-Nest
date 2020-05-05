@@ -18,12 +18,6 @@ export class AdminService {
     // 登录
     async loginAdmin(createAdminDto: CreateAdminDto) {
         // tslint:disable-next-line: only-arrow-functions
-        return this.adminModel.findOne({username: createAdminDto.username, password: createAdminDto.password}, function(err, result) {
-            if (err) {
-                return { status: 0 };
-            } else {
-                return createAdminDto.id;
-            }
-        }).exec();
+        return this.adminModel.find( createAdminDto );
     }
 }

@@ -5,7 +5,7 @@ import { CreateAdminDto } from './dto/create-admin.dto';
 import { AdminService } from './admin.service';
 
 @ApiTags('管理员帐号管理')
-@Controller('createadmin')
+@Controller('admin')
 export class AdminController {
     constructor(private readonly adminService: AdminService) {}
     @ApiOperation({

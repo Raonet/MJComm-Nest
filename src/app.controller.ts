@@ -1,13 +1,14 @@
 import { Controller, Get, Render, Post, UseInterceptors, UploadedFile} from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @Controller()
+@ApiTags('服务器')
 export class AppController {
-  @Get()
-  async getIndex() {
-    return 'Hello world!';
-  }
+  @ApiOperation({
+    summary: '图片上传服务器',
+})
   @Post('upload')
   @UseInterceptors(FileInterceptor('file', {
     storage: diskStorage({
